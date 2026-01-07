@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Village Hunar</title>
+</head>
+<body>
+  <h1>Welcome to Village Hunar</h1>
+  <p>This is my first Azure Static Web App.</p>
+</body>
+</html>
