@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Village Hunar</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home</title>
 </head>
 <body>
-  <h1>Welcome to Village Hunar</h1>
-  <p>This is my first Azure Static Web App. Ravita Tyagi</p>
+  <div id="root">Loading…</div>
+
+  <script>
+    // Load homepage.html and inject its <body> innerHTML into #root
+    fetch('homepage.html')
+      .then(r => r.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        // You can choose to inject full body contents
+        document.getElementById('root').innerHTML = doc.body.innerHTML;
+        // Optionally, run scripts from fetched HTML (more work)
+      })
+      .catch(err => {
+        document.getElementById('root').textContent = 'Failed to load page.';
+        console.error(err);
+      });
+  </script>
 </body>
 </html>
